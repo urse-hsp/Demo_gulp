@@ -1,0 +1,3 @@
+检查 node、npm 和 npx 是否正确安装
+
+安装gulp ,开发依赖 npm install --save-dev gulp
