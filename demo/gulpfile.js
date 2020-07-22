@@ -1,5 +1,5 @@
 // const gulp = require('gulp')
-const { src, dest,series, watch } = require('gulp')
+const { src, dest,series, watch, parallel } = require('gulp')
 
 // npm install --save-dev gulp-uglify gulp-rename
 const uglify = require('gulp-uglify') // 压缩混淆
@@ -9,7 +9,7 @@ const rename = require('gulp-rename') // 更改名字
 const babel = require('gulp-babel')
 const csso = require('gulp-csso');
 const imagemin = require('gulp-imagemin');
-const htmlminify = require("gulp-html-minify");
+// const htmlminify = require("gulp-html-minify");
 
 const css = function() {
     return src(['./css/*.css','./css/*min.css'])
@@ -27,12 +27,12 @@ const img = function() {
 const html = function() {
     return src('./*.html')
     .pipe(dest('sources/'))
-    .pipe(htmlminify())
+    // .pipe(htmlminify())
     .pipe(dest('dist/'))
 }
 
 const js = function() {
-    return src(['./js/*.js','./js/*min.js'])
+    return src(['./js/*.js','./js/*.min.js'])
     // 添加lib下的文件
     // .pipe(src('lib/*.js'))
     // 第一次输出：吧源文件移到 sources/

@@ -32,8 +32,8 @@ series
     -c
 
 ## gulp 提供了俩个组合方法
-- series 按顺序依次执行 同步
-- parallel 同时执行 异步
+- series
+- parallel
 
 
 ## 并发执行
