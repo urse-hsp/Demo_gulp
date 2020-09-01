@@ -1,5 +1,7 @@
 // const gulp = require('gulp')
-const { src, dest,series, watch, parallel } = require('gulp')
+const { src, dest, series, watch, parallel } = require('gulp')
+// dest:创建一个用于将 Vinyl 对象写入到文件系统的流。
+// src:创建一个流，用于从文件系统读取 Vinyl 对象。
 
 // npm install --save-dev gulp-uglify gulp-rename
 const uglify = require('gulp-uglify') // 压缩混淆
@@ -12,7 +14,7 @@ const imagemin = require('gulp-imagemin');
 // const htmlminify = require("gulp-html-minify");
 
 const css = function() {
-    return src(['./css/*.css','./css/*min.css'])
+return src(['./css/*.css','./css/*min.css'])
     .pipe(dest('sources/css/'))
     .pipe(csso())
     .pipe(dest('dist/css'))
@@ -33,10 +35,8 @@ const html = function() {
 
 const js = function() {
     return src(['./js/*.js','./js/*.min.js'])
-    // 添加lib下的文件
-    // .pipe(src('lib/*.js'))
-    // 第一次输出：吧源文件移到 sources/
-    .pipe(dest('sources/js'))
+    // .pipe(src('lib/*.js')) // 添加lib下的文件
+    .pipe(dest('sources/js')) // 第一次输出：吧源文件移到 sources/
     // 吧src下面的文件经过babel转义
     .pipe(babel({
         presets: ['@babel/env']
@@ -48,11 +48,13 @@ const js = function() {
     .pipe(dest('dist/js'))
 }
 
-function aa() {
+function allocation() {
     watch(['./js/*.js','./css/*.css','./*.html'],{
         ignoreInitial:false
     },series(css, img, html, js))
 }
 
 
-exports.default = aa
+exports.default = allocation
+// exports.default = series(css, parallel(img, html, js))
+// exports.default = series(css, img, html, js)
