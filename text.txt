@@ -1,3 +1,7 @@
-¼ì²é node¡¢npm ºÍ npx ÊÇ·ñÕıÈ·°²×°
+æ£€æŸ¥ nodeã€npm å’Œ npx æ˜¯å¦æ­£ç¡®å®‰è£…
 
-°²×°gulp ,¿ª·¢ÒÀÀµ npm install --save-dev gulp
+å®‰è£…gulp ,å¼€å‘ä¾èµ– npm install --save-dev gulp
+
+// npm install --save-dev gulp-uglify gulp-rename
+
+// npm install --save-dev gulp-babel @babel/core @babel/preset-env
